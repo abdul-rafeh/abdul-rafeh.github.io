@@ -11,6 +11,16 @@ const heroContent = {
   heroTitleName: "Abdul Rafeh",
   heroDesignation: "Software Engineer",
   heroDescriptions: `With 6+ years of experience in frontend development, specializing in React, Next.js, React Native, and Web3, I create scalable and efficient solutions for web and mobile platforms`,
+
+  heroTechStack: `
+
+  My Tech Stack:
+  
+  React Native • React.js • Next.js • Node.js • Express • Firebase • 
+  PostgreSQL • MongoDB • Zustand • Redux Toolkit • Tailwind CSS • GraphQL • Wagmi • Ethers.js • RainbowKit • Solana •
+  AWS • PWA • OpenAI • Claude • Whisper • Deepgram • Stability AI •
+  TensorFlow.js • Viro AR • RevenueCat • Mixpanel • HubSpot • Stripe • Expo
+  `,
   heroBtn: "more about me",
 };
 
@@ -44,6 +54,7 @@ const Hero = () => {
               <span>{heroContent.heroDesignation}</span>
             </h1>
             <p className="open-sans-font">{heroContent.heroDescriptions}</p>
+            <p className="open-sans-font">{heroContent.heroTechStack}</p>
             <button className="button" onClick={toggleModalOne}>
               <span className="button-text">{heroContent.heroBtn}</span>
               <span className="button-icon fa fa-arrow-right"></span>
