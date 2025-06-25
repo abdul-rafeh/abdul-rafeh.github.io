@@ -7,7 +7,7 @@ const personalInfoContent = [
   // { meta: "Nationality", metaInfo: "Pakistani" },
   { meta: "Freelance", metaInfo: "Available" },
   { meta: "Address", metaInfo: "New York, USA" },
-  { meta: "phone", metaInfo: "+1 646 765 2179" },
+  // { meta: "phone", metaInfo: "+1 646 765 2179" },
   { meta: "Email", metaInfo: "abdulrafeh@live.co.uk" },
   { meta: "Languages", metaInfo: "English, Urdu, Hindi" },
 ];
