@@ -1,13 +1,13 @@
 import React from "react";
 
 const educationContent = [
-  {
-    year: "Expected May 2026",
-    degree: "Masters of Science in Computer Science",
-    institute: "Mercy University, New York",
-    details: `Specializing in artificial intelligence, data science, and machine learning, 
-    focusing on advanced algorithms, deep learning, and big data analytics.`,
-  },
+  // {
+  //   year: "Expected May 2026",
+  //   degree: "Masters of Science in Computer Science",
+  //   institute: "Mercy University, New York",
+  //   details: `Specializing in artificial intelligence, data science, and machine learning,
+  //   focusing on advanced algorithms, deep learning, and big data analytics.`,
+  // },
   {
     year: "Jan 2022",
     degree: "Bachelors of Science in Computer Science",
