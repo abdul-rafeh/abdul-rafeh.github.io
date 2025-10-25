@@ -2,7 +2,7 @@ import React from "react";
 
 const experienceContent = [
   {
-    year: "June 2023 - Present",
+    year: "June 2023 - December 2024",
     position: "Software Engineer",
     companyName: "Aleh Tech FZCO",
     details: `Developed a versatile web application for deploying ERC20 tokens across multiple 
