@@ -39,7 +39,7 @@ const Hero = () => {
             // backgroundImage: `url(${
             //   process.env.PUBLIC_URL + heroContent.heroImage
             // })`,
-            backgroundImage: `url(/me.jpg)`,
+            backgroundImage: `url(/me.jpeg)`,
           }}
         ></div>
         <div className="col-12 col-lg-8 offset-lg-4 home-details  text-center text-lg-start">
