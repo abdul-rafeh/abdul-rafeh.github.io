@@ -1,0 +1,16 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "exclude": [
+    "build",
+    "dist",
+    "node_modules",
+    "src/components",
+    "src/Context",
+    "src/Hooks",
+    "src/router",
+    "src/views",
+    "src/App.js",
+    "src/index.js",
+    "src/reportWebVitals.js"
+  ]
+}

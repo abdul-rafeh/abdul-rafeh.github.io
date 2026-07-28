@@ -1,0 +1,379 @@
+---
+import { Image } from "astro:assets";
+import architectureImage from "../../assets/img/mediassist/architecture.png";
+import fdaRoutingImage from "../../assets/img/mediassist/fda-routing-detail.png";
+import nihResponseImage from "../../assets/img/mediassist/nih-grounded-response.png";
+import welcomeImage from "../../assets/img/mediassist/welcome.png";
+import "../../styles/global.css";
+import "../../styles/mediassist.css";
+
+const stackGroups = [
+  {
+    category: "Frontend & backend",
+    items: [
+      { name: "React Native", detail: "Cross-platform patient interface" },
+      { name: "FastAPI", detail: "Typed orchestration and retrieval API" },
+    ],
+  },
+  {
+    category: "Machine learning models",
+    items: [
+      { name: "Bio-ClinicalBERT", detail: "Encoder-only model for clinical NLU and routing" },
+      { name: "GPT-4o-mini", detail: "Decoder-only model for grounded response generation" },
+      { name: "all-MiniLM-L6-v2", detail: "Dense vector embeddings for semantic retrieval" },
+    ],
+  },
+  {
+    category: "Data & labeling",
+    items: [
+      { name: "OpenAI Batch API", detail: "Dataset labeling and class balancing" },
+    ],
+  },
+  {
+    category: "Retrieval & search",
+    items: [
+      { name: "FAISS", detail: "Dense semantic vector search" },
+      { name: "BM25", detail: "Sparse exact-keyword retrieval" },
+    ],
+  },
+  {
+    category: "Optimization",
+    items: [
+      { name: "Optuna", detail: "Bayesian hyperparameter optimization" },
+    ],
+  },
+];
+
+const methodologies = [
+  {
+    index: "01",
+    title: "Multi-Agent RAG",
+    summary:
+      "Orchestrates strict routing between specialized models and isolated medical knowledge domains instead of asking one monolithic model to answer everything.",
+  },
+  {
+    index: "02",
+    title: "Bayesian optimization",
+    summary:
+      "Uses Optuna’s Tree-structured Parzen Estimator to explore learning rates efficiently while controlling overfitting.",
+  },
+  {
+    index: "03",
+    title: "Multi-index hybrid search",
+    summary:
+      "Merges FAISS semantic results with BM25 exact matches through Reciprocal Rank Fusion, reducing exact-match dilution.",
+  },
+  {
+    index: "04",
+    title: "Confidence thresholding",
+    summary:
+      "Transforms router logits into probabilities with Softmax and rejects ambiguous queries before they can reach generation.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  name: "MediAssist: Fail-Closed Clinical AI Architecture",
+  description:
+    "A clinical AI system using strict routing, confidence thresholds, hybrid retrieval, and isolated authoritative medical databases.",
+  author: {
+    "@type": "Person",
+    name: "Abdul Rafeh",
+  },
+  programmingLanguage: ["TypeScript", "Python"],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#101411" />
+    <meta
+      name="description"
+      content="MediAssist is a fail-closed clinical AI architecture using strict routing, confidence thresholds, and isolated authoritative medical databases."
+    />
+    <meta property="og:title" content="MediAssist — Fail-Closed Clinical AI Architecture" />
+    <meta
+      property="og:description"
+      content="A clinical AI system designed to reject ambiguity instead of allowing a generative model to guess."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://abdul-rafeh.github.io/projects/mediassist/" />
+    <meta property="og:image" content="https://abdul-rafeh.github.io/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href="https://abdul-rafeh.github.io/projects/mediassist/" />
+    <title>MediAssist — Fail-Closed Clinical AI Architecture</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="case-body">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="case-nav">
+      <a class="wordmark" href="/" aria-label="Abdul Rafeh, portfolio home">AR<span>.</span></a>
+      <a class="case-back" href="/#work">← Back to selected work</a>
+      <span>Project 02 / 2026</span>
+    </header>
+
+    <main id="main">
+      <section class="case-hero">
+        <div class="case-hero-copy">
+          <p class="case-eyebrow">Clinical AI · Machine learning · Retrieval</p>
+          <h1>MediAssist: <em>Fail-Closed</em> Clinical AI Architecture</h1>
+          <p class="case-overview">
+            MediAssist is designed to strictly prevent generative LLM hallucinations. Instead of relying
+            on a monolithic model to guess, it routes patient queries to isolated, authoritative medical
+            databases—and closes the path to generation when confidence is insufficient.
+          </p>
+        </div>
+
+        <div class="fail-closed-map" aria-label="MediAssist fail-closed clinical AI architecture">
+          <div class="map-header">
+            <span>Decision path</span>
+            <span class="map-safe">Fail-closed</span>
+          </div>
+          <div class="clinical-flow">
+            <div class="clinical-node">
+              <small>01 / INPUT</small>
+              <strong>Patient query</strong>
+              <span>Natural-language clinical request</span>
+            </div>
+            <i>↓</i>
+            <div class="clinical-node clinical-router">
+              <small>02 / ROUTER</small>
+              <strong>Bio-ClinicalBERT</strong>
+              <span>7-class clinical intent model</span>
+            </div>
+            <i>↓</i>
+            <div class="confidence-gate">
+              <div>
+                <small>03 / CONFIDENCE GATE</small>
+                <strong>Softmax probability</strong>
+              </div>
+              <div class="gate-paths">
+                <span>Above threshold → retrieve</span>
+                <span>Ambiguous → reject safely</span>
+              </div>
+            </div>
+            <i>↓</i>
+            <div class="index-row">
+              <div><small>FDA</small><strong>Medication</strong></div>
+              <div><small>NIH</small><strong>Conditions</strong></div>
+              <div><small>PubMed</small><strong>Research</strong></div>
+            </div>
+            <i>↓</i>
+            <div class="clinical-node clinical-output">
+              <small>04 / GROUNDED OUTPUT</small>
+              <strong>Hybrid retrieval → generation</strong>
+              <span>FAISS + BM25 + RRF → GPT-4o-mini</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-ribbon" aria-label="Headline project metrics">
+        <div><strong>170K</strong><span>Synthesized clinical queries</span></div>
+        <div><strong>0.82</strong><span>Router Macro F1</span></div>
+        <div><strong>0.94</strong><span>Specialist F1</span></div>
+        <div><strong>3</strong><span>Partitioned medical indexes</span></div>
+      </section>
+
+      <section class="case-section overview-section">
+        <div class="case-section-heading">
+          <p>01 / Overview</p>
+          <h2>Generation is the final step—not the source of truth.</h2>
+        </div>
+        <div class="overview-grid">
+          <p class="overview-lede">
+            The system treats uncertainty as a routing failure rather than an invitation to improvise.
+            Every query must pass classification, confidence, domain, and retrieval checks before a
+            generative model can produce an answer.
+          </p>
+          <div class="principle-list">
+            <div><span>01</span><p>Route each query to the appropriate clinical domain.</p></div>
+            <div><span>02</span><p>Retrieve from an isolated, authoritative offline index.</p></div>
+            <div><span>03</span><p>Fuse semantic and exact-match evidence before generation.</p></div>
+            <div><span>04</span><p>Reject the request when confidence or evidence is insufficient.</p></div>
+          </div>
+        </div>
+
+        <div class="product-gallery">
+          <div class="gallery-heading">
+            <p>Selected product screens</p>
+            <span>Architecture → patient experience → routing evidence</span>
+          </div>
+
+          <a
+            class="architecture-shot"
+            href={architectureImage.src}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open the MediAssist system architecture image at full size"
+          >
+            <Image
+              src={architectureImage}
+              alt="MediAssist system architecture showing the fail-closed guardrail, clinical routers, hybrid search, and authoritative FDA, NIH, and PubMed data sources"
+              widths={[640, 800]}
+              sizes="(max-width: 900px) calc(100vw - 36px), 1280px"
+              loading="lazy"
+            />
+            <span><strong>System architecture</strong>Fail-closed orchestration and isolated retrieval</span>
+          </a>
+
+          <div class="phone-gallery">
+            <a href={welcomeImage.src} target="_blank" rel="noreferrer">
+              <figure>
+                <div class="phone-frame">
+                  <Image
+                    src={welcomeImage}
+                    alt="MediAssist mobile welcome screen with example clinical questions"
+                    widths={[320, 480, 640]}
+                    sizes="(max-width: 700px) 78vw, 30vw"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption><strong>Patient entry point</strong><span>Focused clinical query interface</span></figcaption>
+              </figure>
+            </a>
+
+            <a href={nihResponseImage.src} target="_blank" rel="noreferrer">
+              <figure>
+                <div class="phone-frame">
+                  <Image
+                    src={nihResponseImage}
+                    alt="MediAssist answer for a headache query grounded in the NIH condition authority"
+                    widths={[320, 480, 640]}
+                    sizes="(max-width: 700px) 78vw, 30vw"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption><strong>Grounded response</strong><span>Authority is visible with the answer</span></figcaption>
+              </figure>
+            </a>
+
+            <a href={fdaRoutingImage.src} target="_blank" rel="noreferrer">
+              <figure>
+                <div class="phone-frame">
+                  <Image
+                    src={fdaRoutingImage}
+                    alt="MediAssist response source panel showing FDA routing, drug entity classification, risk intent, and 96 percent confidence"
+                    widths={[320, 480, 640]}
+                    sizes="(max-width: 700px) 78vw, 30vw"
+                    loading="lazy"
+                  />
+                </div>
+                <figcaption><strong>Routing transparency</strong><span>FDA domain · risks intent · 96% confidence</span></figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section stack-section" id="stack">
+        <div class="case-section-heading">
+          <p>02 / Core technology stack</p>
+          <h2>Specialized components with explicit responsibilities.</h2>
+        </div>
+        <div class="stack-table">
+          {stackGroups.map((group) => (
+            <article class="stack-row">
+              <h3>{group.category}</h3>
+              <div>
+                {group.items.map((item) => (
+                  <div class="stack-item">
+                    <strong>{item.name}</strong>
+                    <span>{item.detail}</span>
+                  </div>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="method-section">
+        <div class="case-section-heading">
+          <p>03 / Key methodologies</p>
+          <h2>Four controls between a question and an answer.</h2>
+        </div>
+        <div class="method-grid">
+          {methodologies.map((method) => (
+            <article>
+              <span>{method.index}</span>
+              <h3>{method.title}</h3>
+              <p>{method.summary}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="case-section impact-section">
+        <div class="case-section-heading">
+          <p>04 / Project impact & metrics</p>
+          <h2>Measured routing quality, not just generated fluency.</h2>
+        </div>
+
+        <div class="corpus-callout">
+          <strong>170,000</strong>
+          <div>
+            <h3>Clinical query corpus</h3>
+            <p>Synthesized from MedQuAD, MedQA, ChatDoctor, and HealthCareMagic.</p>
+          </div>
+          <div class="corpus-sources">
+            <span>MedQuAD</span><span>MedQA</span><span>ChatDoctor</span><span>HealthCareMagic</span>
+          </div>
+        </div>
+
+        <div class="model-results">
+          <article>
+            <div class="result-head"><span>Baseline</span><strong>0.71 F1</strong></div>
+            <h3>BART model</h3>
+            <p>
+              The initial baseline exposed class imbalance. The project pivoted to an OpenAI-labeled
+              dataset to improve balance and routing quality.
+            </p>
+          </article>
+          <article class="result-primary">
+            <div class="result-head"><span>Model A</span><strong>0.82 Macro F1</strong></div>
+            <h3>Primary 7-class router</h3>
+            <p>Fine-tuned and evaluated on 33,283 validation queries.</p>
+          </article>
+          <article class="result-specialist">
+            <div class="result-head"><span>Model B</span><strong>0.94 F1</strong></div>
+            <h3>Diagnosis vs. Treatment specialist</h3>
+            <p>Fine-tuned and evaluated on 10,179 validation queries.</p>
+          </article>
+        </div>
+
+        <div class="index-boundary">
+          <div>
+            <p class="boundary-label">Offline data boundary</p>
+            <h3>Partitioned by authority and clinical domain.</h3>
+            <p>
+              Separate databases map to the FDA, NIH, and PubMed, preventing cross-domain contamination
+              and keeping the retrieval path explicit.
+            </p>
+          </div>
+          <div class="boundary-indexes">
+            <div><span>01</span><strong>FDA</strong><small>Medication authority</small></div>
+            <div><span>02</span><strong>NIH</strong><small>Condition guidance</small></div>
+            <div><span>03</span><strong>PubMed</strong><small>Research literature</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-cta">
+        <p>Next project</p>
+        <a href="/#work">Return to selected work <span>↗</span></a>
+      </section>
+    </main>
+
+    <footer class="case-footer">
+      <span>© {new Date().getFullYear()} Abdul Rafeh</span>
+      <a href="mailto:abdulrafeh@live.co.uk">Let’s talk ↗</a>
+    </footer>
+  </body>
+</html>

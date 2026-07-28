@@ -1,33 +1,32 @@
-# Tunis Personal Portfolio React Template
+# Abdul Rafeh — Portfolio
 
-## Description
+Personal software engineering portfolio built with Astro and published at
+[abdul-rafeh.github.io](https://abdul-rafeh.github.io).
 
-Setup Procedure
+## Local development
 
-## Project setup
-
-```
-npm install / npm install --legacy-peer-deps
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run start
+```sh
+yarn install
+yarn dev
 ```
 
-### Compiles and minifies for production
+## Production build
 
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
+```sh
+yarn build
 ```
 
-### Customize configuration (vue-cli)
+Astro generates the static site in `dist/`.
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Publish to GitHub Pages
+
+The `beta` branch contains the source. The deployment command builds the site and publishes
+the generated `dist/` directory to `gh-pages`:
+
+```sh
+yarn deploy
+```
+
+GitHub Pages should be configured to deploy from the root of the `gh-pages` branch. Because
+this repository is the user site `abdul-rafeh.github.io`, Astro is configured with a root base
+path and the canonical site URL `https://abdul-rafeh.github.io`.
