@@ -1,0 +1,257 @@
+---
+import { Image } from "astro:assets";
+import "../../styles/global.css";
+import "../../styles/folio.css";
+import orbitDark from "../../assets/img/folio/orbit-dashboard-dark.png";
+import orbitLight from "../../assets/img/folio/orbit-dashboard-light.png";
+import tallyDark from "../../assets/img/folio/tally-both-dark.png";
+import tallyLight from "../../assets/img/folio/tally-both-light.png";
+import verdeDark from "../../assets/img/folio/verde-both-dark.png";
+import verdeLight from "../../assets/img/folio/verde-both-light.png";
+
+const sharedStack = [
+  ["React 18.3", "Function components and hooks across every working screen"],
+  ["Folio design system", "Shared tokens and 13 reusable interface components"],
+  ["JSON → CSS properties", "One source of truth for color, type, spacing, radius, and shadow"],
+  ["Modern CSS", "Responsive Grid and Flexbox layouts with token-driven themes"],
+  ["Custom SVG icons", "A 28-icon line set drawn on a consistent 24px grid"],
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: "Folio Product Interface Studies",
+  description:
+    "Three working React prototypes exploring a shared design system across team analytics, personal finance, and plant care.",
+  creator: { "@type": "Person", name: "Abdul Rafeh" },
+  dateCreated: "2026",
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#101411" />
+    <meta
+      name="description"
+      content="Orbit, Tally, and Verde are working React product prototypes built from Abdul Rafeh's shared Folio design system."
+    />
+    <meta property="og:title" content="Folio Product Interface Studies — Abdul Rafeh" />
+    <meta
+      property="og:description"
+      content="One design system adapted across team analytics, personal finance, and plant care."
+    />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://abdul-rafeh.github.io/projects/folio/" />
+    <meta property="og:image" content="https://abdul-rafeh.github.io/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="canonical" href="https://abdul-rafeh.github.io/projects/folio/" />
+    <title>Folio Product Interface Studies — Abdul Rafeh</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="folio-body">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="folio-nav">
+      <a class="wordmark" href="/" aria-label="Abdul Rafeh, portfolio home">AR<span>.</span></a>
+      <a class="folio-back" href="/#work">← Back to selected work</a>
+      <span>Product studies / 2026</span>
+    </header>
+
+    <main id="main">
+      <section class="folio-hero">
+        <div class="folio-hero-copy">
+          <p class="folio-eyebrow">Product design · Front-end systems · Prototyping</p>
+          <h1>One system.<br /><em>Three products.</em></h1>
+          <p>
+            Orbit, Tally, and Verde are working React prototypes built to test one idea: a coherent
+            design system should create consistency without erasing each product’s character.
+          </p>
+        </div>
+
+        <div class="folio-hero-collage" aria-label="Selected Folio product screens">
+          <Image
+            class="hero-orbit"
+            src={orbitLight}
+            alt="Orbit team analytics dashboard"
+            widths={[640, 960]}
+            sizes="(max-width: 900px) calc(100vw - 36px), 650px"
+          />
+          <Image
+            class="hero-phone hero-tally"
+            src={tallyLight}
+            alt="Tally finance app home and budget screens"
+            widths={[360, 560]}
+            sizes="(max-width: 600px) 72vw, 300px"
+          />
+          <Image
+            class="hero-phone hero-verde"
+            src={verdeLight}
+            alt="Verde plant-care today and detail screens"
+            widths={[360, 560]}
+            sizes="(max-width: 600px) 72vw, 300px"
+          />
+        </div>
+      </section>
+
+      <section class="folio-facts" aria-label="Project facts">
+        <div><strong>3</strong><span>Product contexts</span></div>
+        <div><strong>13</strong><span>Shared components</span></div>
+        <div><strong>2</strong><span>Complete themes</span></div>
+        <div><strong>28</strong><span>Custom SVG icons</span></div>
+      </section>
+
+      <section class="folio-section folio-overview">
+        <div class="folio-heading">
+          <p>01 / The system</p>
+          <h2>Shared foundations.<br />Distinct product voices.</h2>
+        </div>
+        <div class="folio-overview-grid">
+          <p>
+            The prototypes share component behavior, typography, spacing, radii, and interaction
+            patterns. Product identity comes from controlled theme overrides: color, emphasis, and
+            content hierarchy change while the underlying system stays stable.
+          </p>
+          <ol>
+            <li><span>01</span><div><strong>Token first</strong><p>Color, spacing, type, radius, and shadows come from one JSON source.</p></div></li>
+            <li><span>02</span><div><strong>One clear emphasis</strong><p>Each screen uses a single highlight to make the next action obvious.</p></div></li>
+            <li><span>03</span><div><strong>Theme parity</strong><p>Light and dark modes preserve hierarchy instead of simply inverting colors.</p></div></li>
+            <li><span>04</span><div><strong>Accessible states</strong><p>Status and progress use labels and values—not color alone.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="product-study product-orbit" id="orbit">
+        <div class="study-copy">
+          <p class="study-index">02 / Orbit · Web dashboard</p>
+          <h2>A weekly health check for product teams.</h2>
+          <p>
+            Orbit brings delivery signals into one scan: shipped work, cycle time, bugs, sprint
+            progress, velocity, and active-project risk. Its bento layout gives product and
+            engineering leads a status view without reconstructing it from tickets and spreadsheets.
+          </p>
+          <ul>
+            <li>KPI cards with deltas and sparklines</li>
+            <li>Weekly velocity with selectable time ranges</li>
+            <li>Sprint progress and risk-aware project filtering</li>
+            <li>Visible keyboard search and focus states</li>
+          </ul>
+        </div>
+        <div class="theme-pair theme-pair-wide">
+          <figure>
+            <a href={orbitLight.src} target="_blank" rel="noreferrer">
+              <Image src={orbitLight} alt="Orbit overview dashboard in the light theme" widths={[720, 1080, 1360]} sizes="(max-width: 900px) calc(100vw - 36px), 620px" loading="lazy" />
+            </a>
+            <figcaption><span>Light theme</span><span>Overview dashboard ↗</span></figcaption>
+          </figure>
+          <figure>
+            <a href={orbitDark.src} target="_blank" rel="noreferrer">
+              <Image src={orbitDark} alt="Orbit overview dashboard in the dark theme" widths={[720, 1080, 1360]} sizes="(max-width: 900px) calc(100vw - 36px), 620px" loading="lazy" />
+            </a>
+            <figcaption><span>Dark theme</span><span>Token parity ↗</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="product-study product-tally" id="tally">
+        <div class="study-copy">
+          <p class="study-index">03 / Tally · Mobile finance</p>
+          <h2>Money decisions without spreadsheet density.</h2>
+          <p>
+            Tally is organized around two recurring questions: “what happened?” and “am I on track?”
+            Large figures, aligned amounts, category meters, and plainly worded warnings keep the
+            answer visible without turning the app into a wall of charts.
+          </p>
+          <ul>
+            <li>Balance, change, and recent activity at a glance</li>
+            <li>Monthly budget ring with days remaining</li>
+            <li>Category progress with explicit over-budget labels</li>
+            <li>A focused savings goal with one clear action</li>
+          </ul>
+        </div>
+        <div class="theme-pair theme-pair-mobile">
+          <figure>
+            <a href={tallyLight.src} target="_blank" rel="noreferrer">
+              <Image src={tallyLight} alt="Tally home and budget screens in the light theme" widths={[560, 820, 1080]} sizes="(max-width: 900px) calc(100vw - 36px), 620px" loading="lazy" />
+            </a>
+            <figcaption><span>Light theme</span><span>Home + budgets ↗</span></figcaption>
+          </figure>
+          <figure>
+            <a href={tallyDark.src} target="_blank" rel="noreferrer">
+              <Image src={tallyDark} alt="Tally home and budget screens in the dark theme" widths={[560, 820, 1080]} sizes="(max-width: 900px) calc(100vw - 36px), 620px" loading="lazy" />
+            </a>
+            <figcaption><span>Dark theme</span><span>Home + budgets ↗</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="product-study product-verde" id="verde">
+        <div class="study-copy">
+          <p class="study-index">04 / Verde · Mobile utility</p>
+          <h2>Plant care reduced to what matters today.</h2>
+          <p>
+            Verde turns different watering, light, and humidity needs into a short daily round. The
+            interface favors direct instructions over encyclopedic content, with primary actions kept
+            within easy reach and plant status always stated in words.
+          </p>
+          <ul>
+            <li>A daily watering round with visible completion</li>
+            <li>Room filters for larger plant collections</li>
+            <li>Care needs summarized through three compact measures</li>
+            <li>One-tap watering logs and a reserved identification flow</li>
+          </ul>
+        </div>
+        <div class="theme-pair theme-pair-mobile">
+          <figure>
+            <a href={verdeLight.src} target="_blank" rel="noreferrer">
+              <Image src={verdeLight} alt="Verde today and plant detail screens in the light theme" widths={[560, 820, 1080]} sizes="(max-width: 900px) calc(100vw - 36px), 620px" loading="lazy" />
+            </a>
+            <figcaption><span>Light theme</span><span>Today + plant detail ↗</span></figcaption>
+          </figure>
+          <figure>
+            <a href={verdeDark.src} target="_blank" rel="noreferrer">
+              <Image src={verdeDark} alt="Verde today and plant detail screens in the dark theme" widths={[560, 820, 1080]} sizes="(max-width: 900px) calc(100vw - 36px), 620px" loading="lazy" />
+            </a>
+            <figcaption><span>Dark theme</span><span>Today + plant detail ↗</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="folio-section folio-build">
+        <div class="folio-heading">
+          <p>05 / What is built</p>
+          <h2>A working prototype,<br />with an honest boundary.</h2>
+        </div>
+        <div class="build-grid">
+          <div class="build-list">
+            {sharedStack.map(([name, detail]) => (
+              <div><strong>{name}</strong><span>{detail}</span></div>
+            ))}
+          </div>
+          <div class="build-note">
+            <p class="study-index">Prototype boundary</p>
+            <h3>The interface layer is implemented. The production services are a direction.</h3>
+            <p>
+              The screens are real React code, not static mock-ups. Proposed integrations—such as
+              Jira and GitHub for Orbit, bank connections for Tally, or plant identification and sync
+              for Verde—are documented production paths, not features claimed as complete.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="folio-cta">
+        <p>Return to portfolio</p>
+        <a href="/#work">Explore selected work <span>↗</span></a>
+      </section>
+    </main>
+
+    <footer class="folio-footer">
+      <span>© {new Date().getFullYear()} Abdul Rafeh</span>
+      <a href="mailto:abdulrafeh@live.co.uk">Let’s talk ↗</a>
+    </footer>
+  </body>
+</html>

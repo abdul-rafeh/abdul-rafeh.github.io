@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
 import resumeUrl from "../assets/docs/RafehCV_NY_New.pdf?url";
 import keeperImage from "../assets/img/portfolio/keeper.png";
@@ -9,6 +10,9 @@ import contextDeskPlatform from "../assets/img/contextdesk/platform-overview.png
 import contextDeskDashboard from "../assets/img/contextdesk/tenant-dashboard.png";
 import contextDeskDocuments from "../assets/img/contextdesk/document-operations.png";
 import contextDeskCitations from "../assets/img/contextdesk/cited-answer.png";
+import orbitPreview from "../assets/img/folio/orbit-dashboard-light.png";
+import tallyPreview from "../assets/img/folio/tally-both-light.png";
+import verdePreview from "../assets/img/folio/verde-both-light.png";
 
 const projects = [
   {
@@ -134,7 +138,7 @@ const jsonLd = {
       <section class="hero section" id="top">
         <div class="hero-kicker reveal">Software engineer · New York</div>
         <h1 class="reveal">
-          I build dependable products where <em>frontend craft</em> meets systems thinking.
+          I build full-stack, <em>AI-native products</em> designed for real users and real constraints.
         </h1>
         <div class="hero-bottom reveal">
           <p>
@@ -293,12 +297,80 @@ const jsonLd = {
           </div>
         </a>
 
+        <section class="folio-feature reveal" aria-labelledby="folio-feature-title">
+          <div class="folio-feature-intro">
+            <div class="project-meta"><span>Product interface studies</span><span>2026</span></div>
+            <div>
+              <p class="folio-label">Folio design system</p>
+              <h3 id="folio-feature-title">One system.<br />Three product contexts.</h3>
+            </div>
+            <p>
+              Working React prototypes exploring how a shared token system can adapt across team
+              analytics, personal finance, and plant care—without making the products feel identical.
+            </p>
+            <a class="folio-case-link" href="/projects/folio/">Explore the case study <span>↗</span></a>
+          </div>
+
+          <div class="folio-project-grid">
+            <a class="folio-project-card folio-project-orbit" href="/projects/folio/#orbit">
+              <div class="folio-project-image">
+                <Image
+                  src={orbitPreview}
+                  alt="Orbit product-team analytics dashboard in its light theme"
+                  widths={[640, 960, 1360]}
+                  sizes="(max-width: 900px) calc(100vw - 72px), 820px"
+                  loading="lazy"
+                />
+              </div>
+              <div class="folio-project-caption">
+                <div><span>03 / Web dashboard</span><span>↗</span></div>
+                <h4>Orbit</h4>
+                <p>Weekly delivery health for product and engineering leads.</p>
+              </div>
+            </a>
+
+            <a class="folio-project-card" href="/projects/folio/#tally">
+              <div class="folio-project-image folio-mobile-image">
+                <Image
+                  src={tallyPreview}
+                  alt="Tally personal-finance home and budget screens in the light theme"
+                  widths={[480, 720, 960]}
+                  sizes="(max-width: 700px) calc(100vw - 72px), 400px"
+                  loading="lazy"
+                />
+              </div>
+              <div class="folio-project-caption">
+                <div><span>04 / Mobile finance</span><span>↗</span></div>
+                <h4>Tally</h4>
+                <p>Clear spending, budgets, and savings progress at a glance.</p>
+              </div>
+            </a>
+
+            <a class="folio-project-card" href="/projects/folio/#verde">
+              <div class="folio-project-image folio-mobile-image">
+                <Image
+                  src={verdePreview}
+                  alt="Verde plant-care today and plant detail screens in the light theme"
+                  widths={[480, 720, 960]}
+                  sizes="(max-width: 700px) calc(100vw - 72px), 400px"
+                  loading="lazy"
+                />
+              </div>
+              <div class="folio-project-caption">
+                <div><span>05 / Mobile utility</span><span>↗</span></div>
+                <h4>Verde</h4>
+                <p>A calm daily care plan for plants across rooms and routines.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
         <div class="project-grid">
           {projects.map((project, index) => (
             <a class="project-card reveal" href={project.href} target="_blank" rel="noreferrer">
               <div class="project-image">
                 <img src={project.image} alt={`${project.name} product interface`} loading="lazy" />
-                <span class="project-number">0{index + 3}</span>
+                <span class="project-number">0{index + 6}</span>
               </div>
               <div class="project-card-copy">
                 <div><span>{project.type}</span><span>↗</span></div>
