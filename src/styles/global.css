@@ -156,6 +156,8 @@ nav a:hover, footer a:hover { opacity: .55; }
 .folio-project-card { display: flex; flex-direction: column; min-width: 0; background: #e9ebe7; color: var(--ink); }
 .folio-project-orbit { grid-column: 1 / -1; }
 .folio-project-image { overflow: hidden; aspect-ratio: 1.75; background: #f4f5ef; }
+.folio-project-orbit .folio-project-image { aspect-ratio: 1.35; padding: clamp(10px, 1vw, 18px); }
+.folio-project-orbit .folio-project-image img { object-fit: contain; }
 .folio-mobile-image { aspect-ratio: 1.15; }
 .folio-project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
 .folio-project-card:hover .folio-project-image img { transform: scale(1.018); }
