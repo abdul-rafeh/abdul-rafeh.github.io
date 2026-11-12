@@ -302,13 +302,18 @@ const jsonLd = {
 
           <div class="gallery-strip">
             <figure class="gallery-item">
-              <a href={contextDeskPlatform.src} target="_blank" rel="noreferrer">
+              <button
+                type="button"
+                aria-label="Enlarge ContextDesk platform overview"
+                data-lightbox-src={contextDeskPlatform.src}
+                data-lightbox-alt="ContextDesk platform overview showing retrieved sources, a grounded answer, and the RAG pipeline"
+              >
                 <img
                   src={contextDeskPlatform.src}
                   alt="ContextDesk platform overview showing retrieved sources, a grounded answer, and the RAG pipeline"
                   loading="lazy"
                 />
-              </a>
+              </button>
               <figcaption>
                 <span><strong>01</strong> Platform overview</span>
                 <span>↗</span>
@@ -316,13 +321,18 @@ const jsonLd = {
             </figure>
 
             <figure class="gallery-item">
-              <a href={contextDeskDashboard.src} target="_blank" rel="noreferrer">
+              <button
+                type="button"
+                aria-label="Enlarge ContextDesk tenant dashboard"
+                data-lightbox-src={contextDeskDashboard.src}
+                data-lightbox-alt="ContextDesk tenant dashboard with organization workspaces and security controls"
+              >
                 <img
                   src={contextDeskDashboard.src}
                   alt="ContextDesk tenant dashboard with organization workspaces and security controls"
                   loading="lazy"
                 />
-              </a>
+              </button>
               <figcaption>
                 <span><strong>02</strong> Tenant dashboard</span>
                 <span>↗</span>
@@ -330,13 +340,18 @@ const jsonLd = {
             </figure>
 
             <figure class="gallery-item">
-              <a href={contextDeskDocuments.src} target="_blank" rel="noreferrer">
+              <button
+                type="button"
+                aria-label="Enlarge ContextDesk document operations dashboard"
+                data-lightbox-src={contextDeskDocuments.src}
+                data-lightbox-alt="ContextDesk document operations dashboard showing retrieval-ready documents"
+              >
                 <img
                   src={contextDeskDocuments.src}
                   alt="ContextDesk document operations dashboard showing retrieval-ready documents"
                   loading="lazy"
                 />
-              </a>
+              </button>
               <figcaption>
                 <span><strong>03</strong> Document operations</span>
                 <span>↗</span>
@@ -344,14 +359,19 @@ const jsonLd = {
             </figure>
 
             <figure class="gallery-item">
-              <a href={contextDeskCitations.src} target="_blank" rel="noreferrer">
+              <button
+                type="button"
+                aria-label="Enlarge ContextDesk grounded conversation"
+                data-lightbox-src={contextDeskCitations.src}
+                data-lightbox-alt="ContextDesk grounded conversation showing an answer with its validated source citation"
+              >
                 <img
                   class="gallery-citation-image"
                   src={contextDeskCitations.src}
                   alt="ContextDesk grounded conversation showing an answer with its validated source citation"
                   loading="lazy"
                 />
-              </a>
+              </button>
               <figcaption>
                 <span><strong>04</strong> Grounded conversation</span>
                 <span>↗</span>
