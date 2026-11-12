@@ -30,8 +30,9 @@ import peerThree from "../assets/img/archive/peer-3.jpg";
 import roamiiOne from "../assets/img/archive/roamii-1.jpg";
 import roamiiTwo from "../assets/img/archive/roamii-2.jpg";
 import roamiiThree from "../assets/img/archive/roamii-3.jpg";
-import mietboxOne from "../assets/img/archive/mietbox-1.png";
-import mietboxTwo from "../assets/img/archive/mietbox-2.png";
+import mietboxShowcase from "../assets/img/archive/mietbox-showcase.webp";
+import mietboxDocuments from "../assets/img/archive/mietbox-documents.webp";
+import mietboxTime from "../assets/img/archive/mietbox-time.webp";
 import multipassOne from "../assets/img/archive/multipass-1.jpg";
 import boldOne from "../assets/img/archive/bold-1.jpg";
 import recentFollowOne from "../assets/img/archive/recentfollow-1.jpg";
@@ -559,9 +560,54 @@ const jsonLd = {
                 <a href="https://play.google.com/store/apps/details?id=com.marmar.mietbox&hl=en_US" target="_blank" rel="noreferrer">Google Play ↗</a>
               </nav>
             </div>
-            <div class="mietbox-screens" aria-label="MietBox App Store product screens">
-              <Image src={mietboxOne} alt="MietBox task operations screen" widths={[360, 470]} sizes="24vw" loading="lazy" />
-              <Image src={mietboxTwo} alt="MietBox time-recording screen" widths={[360, 470]} sizes="24vw" loading="lazy" />
+            <div class="mietbox-visuals" aria-label="MietBox product interfaces from the official website">
+              <button
+                class="zoom-trigger mietbox-showcase"
+                type="button"
+                data-lightbox-src={mietboxShowcase.src}
+                data-lightbox-alt="MietBox scheduling interface across desktop, tablet, and mobile"
+                aria-label="Enlarge MietBox cross-device scheduling interface"
+              >
+                <Image
+                  src={mietboxShowcase}
+                  alt="MietBox scheduling interface across desktop, tablet, and mobile"
+                  widths={[600, 900, 1200]}
+                  sizes="(max-width: 900px) 100vw, 42vw"
+                  loading="lazy"
+                />
+              </button>
+              <div class="mietbox-detail-grid">
+                <button
+                  class="zoom-trigger"
+                  type="button"
+                  data-lightbox-src={mietboxDocuments.src}
+                  data-lightbox-alt="MietBox document management interface"
+                  aria-label="Enlarge MietBox document management interface"
+                >
+                  <Image
+                    src={mietboxDocuments}
+                    alt="MietBox document management interface"
+                    widths={[420, 720]}
+                    sizes="(max-width: 900px) 50vw, 20vw"
+                    loading="lazy"
+                  />
+                </button>
+                <button
+                  class="zoom-trigger"
+                  type="button"
+                  data-lightbox-src={mietboxTime.src}
+                  data-lightbox-alt="MietBox time recording interface on laptop and phone"
+                  aria-label="Enlarge MietBox time recording interface"
+                >
+                  <Image
+                    src={mietboxTime}
+                    alt="MietBox time recording interface on laptop and phone"
+                    widths={[420, 720]}
+                    sizes="(max-width: 900px) 50vw, 20vw"
+                    loading="lazy"
+                  />
+                </button>
+              </div>
             </div>
           </article>
 
