@@ -13,6 +13,21 @@ import contextDeskCitations from "../assets/img/contextdesk/cited-answer.png";
 import orbitPreview from "../assets/img/folio/orbit-dashboard-light.png";
 import tallyPreview from "../assets/img/folio/tally-both-light.png";
 import verdePreview from "../assets/img/folio/verde-both-light.png";
+import kruzeeImage from "../assets/img/archive/kruzee.png";
+import liibleImage from "../assets/img/archive/liible.png";
+import mdImage from "../assets/img/archive/md.png";
+import blobImage from "../assets/img/archive/blob.png";
+import fantasyImage from "../assets/img/archive/fantasy.png";
+import peerImage from "../assets/img/archive/peer.png";
+import roamiiOne from "../assets/img/archive/roamii-1.jpg";
+import roamiiTwo from "../assets/img/archive/roamii-2.jpg";
+import roamiiThree from "../assets/img/archive/roamii-3.jpg";
+import mietboxOne from "../assets/img/archive/mietbox-1.png";
+import mietboxTwo from "../assets/img/archive/mietbox-2.png";
+import multipassOne from "../assets/img/archive/multipass-1.jpg";
+import boldOne from "../assets/img/archive/bold-1.jpg";
+import recentFollowOne from "../assets/img/archive/recentfollow-1.jpg";
+import followSpyOne from "../assets/img/archive/followspy-1.jpg";
 
 const projects = [
   {
@@ -50,6 +65,50 @@ const projects = [
     stack: ["Next.js", "Tailwind CSS", "Wagmi", "Web3"],
     image: blockrockImage.src,
     href: "https://blockrock.app/",
+  },
+];
+
+const archiveProjects = [
+  {
+    name: "Kruzee",
+    type: "Mobile scheduling",
+    description: "Instructor scheduling, lesson planning, and weekly availability in one mobile workflow.",
+    image: kruzeeImage,
+    links: [
+      { label: "Website", href: "https://kruzee.com/driving-school/new-york" },
+      { label: "App Store", href: "https://apps.apple.com/us/app/kruzee-instructor/id6443723645" },
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.kruzee.kruzeeInstructor&hl=en_US" },
+    ],
+  },
+  {
+    name: "Liible",
+    type: "Location-based marketplace",
+    description: "A map-led local jobs experience connecting workers with nearby businesses and open roles.",
+    image: liibleImage,
+  },
+  {
+    name: "MD",
+    type: "Mobile commerce",
+    description: "A branded storefront spanning category discovery, product browsing, and cart-ready detail views.",
+    image: mdImage,
+  },
+  {
+    name: "Blob",
+    type: "Web3 dashboard",
+    description: "A cross-device DeFi interface for staking, treasury activity, rewards, and protocol analytics.",
+    image: blobImage,
+  },
+  {
+    name: "Fantasy",
+    type: "Fantasy sports platform",
+    description: "Player discovery, performance analytics, and marketplace flows across a responsive sports product.",
+    image: fantasyImage,
+  },
+  {
+    name: "Peer",
+    type: "Pair-trading platform",
+    description: "A trading experience combining market discovery, live charts, position controls, and portfolio views.",
+    image: peerImage,
   },
 ];
 
@@ -381,6 +440,167 @@ const jsonLd = {
             </a>
           ))}
         </div>
+
+        <section class="archive-projects" aria-labelledby="archive-projects-title">
+          <div class="archive-heading">
+            <div>
+              <p class="eyebrow">Additional product work</p>
+              <h3 id="archive-projects-title">More shipped interfaces,<br />across mobile and web.</h3>
+            </div>
+            <p>
+              A broader selection spanning travel, scheduling, marketplaces, commerce,
+              sports, and on-chain finance.
+            </p>
+          </div>
+
+          <a
+            class="roamii-card"
+            href="https://apps.apple.com/us/app/roamii/id6757824059"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="roamii-copy">
+              <div class="project-meta"><span>Live on the App Store</span><span>2026</span></div>
+              <div>
+                <p class="archive-kicker">Group travel coordination</p>
+                <h4>Roamii</h4>
+                <p>
+                  Shared itineraries, expense splitting, group check-ins, and supervised-trip
+                  safety tools—built to keep travelers coordinated without making them feel watched.
+                </p>
+              </div>
+              <span class="roamii-link">View on the App Store <b>↗</b></span>
+            </div>
+            <div class="roamii-screens" aria-label="Roamii App Store product screens">
+              <Image src={roamiiOne} alt="Roamii trip overview screen" widths={[360, 444]} sizes="18vw" loading="lazy" />
+              <Image src={roamiiTwo} alt="Roamii group location screen" widths={[360, 444]} sizes="18vw" loading="lazy" />
+              <Image src={roamiiThree} alt="Roamii shared expense screen" widths={[360, 444]} sizes="18vw" loading="lazy" />
+            </div>
+          </a>
+
+          <article class="mietbox-card">
+            <div class="mietbox-copy">
+              <div class="project-meta"><span>Shipped field operations app</span><span>iOS + Android</span></div>
+              <div>
+                <p class="archive-kicker">Construction operations</p>
+                <h4>MietBox</h4>
+                <p>
+                  A mobile operations product for construction and traffic-safety teams, bringing
+                  orders, field tasks, documents, and time records into one coordinated workflow.
+                </p>
+              </div>
+              <nav class="product-links" aria-label="MietBox product links">
+                <a href="https://www.marmar.de/software/mietbox.html" target="_blank" rel="noreferrer">Website ↗</a>
+                <a href="https://apps.apple.com/us/app/mietbox/id6474621205" target="_blank" rel="noreferrer">App Store ↗</a>
+                <a href="https://play.google.com/store/apps/details?id=com.marmar.mietbox&hl=en_US" target="_blank" rel="noreferrer">Google Play ↗</a>
+              </nav>
+            </div>
+            <div class="mietbox-screens" aria-label="MietBox App Store product screens">
+              <Image src={mietboxOne} alt="MietBox task operations screen" widths={[360, 470]} sizes="24vw" loading="lazy" />
+              <Image src={mietboxTwo} alt="MietBox time-recording screen" widths={[360, 470]} sizes="24vw" loading="lazy" />
+            </div>
+          </article>
+
+          <div class="shipped-product-grid" id="shipped-products">
+            <article class="shipped-product-card multipass-card">
+              <div class="shipped-product-copy">
+                <div>
+                  <p class="archive-kicker">Event operations</p>
+                  <h4>Multipass</h4>
+                  <p>One mobile workflow for attendee tickets, door scanning, member lookup, and on-site sales.</p>
+                </div>
+                <nav class="shipped-product-links" aria-label="Multipass product links">
+                  <a href="https://www.multipass.com/" target="_blank" rel="noreferrer">Website ↗</a>
+                  <a href="https://apps.apple.com/us/app/multipass-events/id6744303923" target="_blank" rel="noreferrer">App Store ↗</a>
+                  <a href="https://play.google.com/store/apps/details?id=com.multipass.core&pcampaignid=web_share" target="_blank" rel="noreferrer">Google Play ↗</a>
+                </nav>
+              </div>
+              <div class="shipped-product-image">
+                <Image src={multipassOne} alt="Multipass ticket scanning screen" widths={[420, 660]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="shipped-product-card bold-card">
+              <div class="shipped-product-copy">
+                <div>
+                  <p class="archive-kicker">AI meeting intelligence</p>
+                  <h4>Bold</h4>
+                  <p>A privacy-focused recorder that turns meetings, lectures, and voice notes into searchable transcripts and summaries.</p>
+                </div>
+                <nav class="shipped-product-links" aria-label="Bold product links">
+                  <a href="https://www.boldnotes.ai/" target="_blank" rel="noreferrer">Website ↗</a>
+                  <a href="https://apps.apple.com/us/app/bold-ai-meeting-note-taker/id6745902872" target="_blank" rel="noreferrer">App Store ↗</a>
+                </nav>
+              </div>
+              <div class="shipped-product-image">
+                <Image src={boldOne} alt="Bold AI meeting note taker interface" widths={[420, 660]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="shipped-product-card recent-follow-card">
+              <div class="shipped-product-copy">
+                <div>
+                  <p class="archive-kicker">Social analytics</p>
+                  <h4>Recent Follow</h4>
+                  <p>A mobile analytics product for tracking public-profile follower changes, growth patterns, and recent activity.</p>
+                </div>
+                <nav class="shipped-product-links" aria-label="Recent Follow product links">
+                  <a href="https://www.recentfollow.com/" target="_blank" rel="noreferrer">Website ↗</a>
+                  <a href="https://apps.apple.com/us/app/recent-follow-follow-tracker/id6753231065" target="_blank" rel="noreferrer">App Store ↗</a>
+                </nav>
+              </div>
+              <div class="shipped-product-image">
+                <Image src={recentFollowOne} alt="Recent Follow social activity interface" widths={[420, 660]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+              </div>
+            </article>
+
+            <article class="shipped-product-card followspy-card">
+              <div class="shipped-product-copy">
+                <div>
+                  <p class="archive-kicker">Public profile insights</p>
+                  <h4>FollowSpy</h4>
+                  <p>Fast public-profile discovery and follower analytics presented through a focused, dark mobile interface.</p>
+                </div>
+                <nav class="shipped-product-links" aria-label="FollowSpy product links">
+                  <a href="https://followspy.ai/" target="_blank" rel="noreferrer">Website ↗</a>
+                  <a href="https://apps.apple.com/us/app/followspy/id6781311325" target="_blank" rel="noreferrer">App Store ↗</a>
+                </nav>
+              </div>
+              <div class="shipped-product-image">
+                <Image src={followSpyOne} alt="FollowSpy public profile search interface" widths={[420, 660]} sizes="(max-width: 900px) 100vw, 50vw" loading="lazy" />
+              </div>
+            </article>
+          </div>
+
+          <div class="archive-grid">
+            {archiveProjects.map((project, index) => (
+              <article class="archive-card">
+                <div class="archive-image">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} interface presented across multiple devices`}
+                    widths={[480, 720, 960]}
+                    sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 900px) 50vw, 33vw"
+                    loading="lazy"
+                  />
+                  <span class="archive-number">{String(index + 10).padStart(2, "0")}</span>
+                </div>
+                <div class="archive-copy">
+                  <span>{project.type}</span>
+                  <h4>{project.name}</h4>
+                  <p>{project.description}</p>
+                  {project.links && (
+                    <nav class="archive-links" aria-label={`${project.name} product links`}>
+                      {project.links.map((link) => (
+                        <a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>
+                      ))}
+                    </nav>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </section>
 
       <section class="section experience" id="experience">
