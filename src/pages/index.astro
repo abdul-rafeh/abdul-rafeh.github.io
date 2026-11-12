@@ -2,10 +2,14 @@
 import { Image } from "astro:assets";
 import "../styles/global.css";
 import resumeUrl from "../assets/docs/RafehCV_NY_New.pdf?url";
-import keeperImage from "../assets/img/portfolio/keeper.png";
 import gotlrImage from "../assets/img/portfolio/gotlr.png";
 import ebharImage from "../assets/img/portfolio/ebhar.png";
-import blockrockImage from "../assets/img/portfolio/block.png";
+import keeperOne from "../assets/img/portfolio/keeper-1.jpg";
+import keeperTwo from "../assets/img/portfolio/keeper-2.jpg";
+import keeperThree from "../assets/img/portfolio/keeper-3.jpg";
+import blockrockOne from "../assets/img/portfolio/blockrock-1.jpg";
+import blockrockTwo from "../assets/img/portfolio/blockrock-2.jpg";
+import blockrockThree from "../assets/img/portfolio/blockrock-3.jpg";
 import contextDeskPlatform from "../assets/img/contextdesk/platform-overview.png";
 import contextDeskDashboard from "../assets/img/contextdesk/tenant-dashboard.png";
 import contextDeskDocuments from "../assets/img/contextdesk/document-operations.png";
@@ -17,8 +21,12 @@ import kruzeeImage from "../assets/img/archive/kruzee.png";
 import liibleImage from "../assets/img/archive/liible.png";
 import mdImage from "../assets/img/archive/md.png";
 import blobImage from "../assets/img/archive/blob.png";
-import fantasyImage from "../assets/img/archive/fantasy.png";
-import peerImage from "../assets/img/archive/peer.png";
+import fantasyOne from "../assets/img/archive/fantasy-1.png";
+import fantasyTwo from "../assets/img/archive/fantasy-2.png";
+import fantasyThree from "../assets/img/archive/fantasy-3.png";
+import peerOne from "../assets/img/archive/peer-1.jpg";
+import peerTwo from "../assets/img/archive/peer-2.jpg";
+import peerThree from "../assets/img/archive/peer-3.jpg";
 import roamiiOne from "../assets/img/archive/roamii-1.jpg";
 import roamiiTwo from "../assets/img/archive/roamii-2.jpg";
 import roamiiThree from "../assets/img/archive/roamii-3.jpg";
@@ -36,7 +44,12 @@ const projects = [
     description:
       "A multi-chain product experience connecting wallets and decentralized protocols across Solana, Bitcoin, and EVM networks.",
     stack: ["Next.js", "TypeScript", "Wagmi", "WalletConnect"],
-    image: keeperImage.src,
+    image: null,
+    images: [
+      { src: keeperOne, alt: "Keeper Web3 bookkeeping marketing page" },
+      { src: keeperTwo, alt: "Keeper multi-chain portfolio dashboard" },
+      { src: keeperThree, alt: "Keeper cryptocurrency market dashboard" },
+    ],
     href: "https://keeperfi.io/",
   },
   {
@@ -46,6 +59,7 @@ const projects = [
       "A React Native marketplace with location-aware discovery, live chat, payments, and transaction workflows.",
     stack: ["React Native", "Socket.io", "MangoPay", "Maps"],
     image: gotlrImage.src,
+    images: null,
     href: "https://gotlr.com/",
   },
   {
@@ -55,6 +69,7 @@ const projects = [
       "A production mobile experience built around clear discovery, responsive interaction, and dependable cross-platform delivery.",
     stack: ["React Native", "Mobile UX", "API integration"],
     image: ebharImage.src,
+    images: null,
     href: "https://ebhar.com/",
   },
   {
@@ -63,7 +78,12 @@ const projects = [
     description:
       "A wallet-connected web application designed to make complex blockchain interactions feel direct and understandable.",
     stack: ["Next.js", "Tailwind CSS", "Wagmi", "Web3"],
-    image: blockrockImage.src,
+    image: null,
+    images: [
+      { src: blockrockOne, alt: "Blockrock token launch marketing page" },
+      { src: blockrockTwo, alt: "Blockrock token launch dashboard" },
+      { src: blockrockThree, alt: "Blockrock landing page builder" },
+    ],
     href: "https://blockrock.app/",
   },
 ];
@@ -102,13 +122,24 @@ const archiveProjects = [
     name: "Fantasy",
     type: "Fantasy sports platform",
     description: "Player discovery, performance analytics, and marketplace flows across a responsive sports product.",
-    image: fantasyImage,
+    image: null,
+    images: [
+      { src: fantasyOne, alt: "Fantasy Funduhmentals landing page and leaderboard" },
+      { src: fantasyTwo, alt: "Fantasy Funduhmentals player marketplace" },
+      { src: fantasyThree, alt: "Fantasy Funduhmentals player detail and performance dashboard" },
+    ],
+    links: [{ label: "Website", href: "https://theduh.com/" }],
   },
   {
     name: "Peer",
     type: "Pair-trading platform",
     description: "A trading experience combining market discovery, live charts, position controls, and portfolio views.",
-    image: peerImage,
+    image: null,
+    images: [
+      { src: peerOne, alt: "Peer pair-trading landing page" },
+      { src: peerTwo, alt: "Peer live pair-trading terminal" },
+      { src: peerThree, alt: "Peer staking dashboard" },
+    ],
   },
 ];
 
@@ -426,18 +457,51 @@ const jsonLd = {
 
         <div class="project-grid">
           {projects.map((project, index) => (
-            <a class="project-card reveal" href={project.href} target="_blank" rel="noreferrer">
-              <div class="project-image">
-                <img src={project.image} alt={`${project.name} product interface`} loading="lazy" />
+            <article class="project-card reveal">
+              <div class:list={["project-image", { "project-image-gallery": project.images }]}>
+                {project.images ? (
+                  <div class="screen-gallery">
+                    {project.images.map((screen, screenIndex) => (
+                      <button
+                        class:list={["zoom-trigger", { "gallery-main": screenIndex === 0 }]}
+                        type="button"
+                        data-lightbox-src={screen.src.src}
+                        data-lightbox-alt={screen.alt}
+                        aria-label={`Enlarge ${screen.alt}`}
+                      >
+                        <Image
+                          src={screen.src}
+                          alt={screen.alt}
+                          widths={[420, 720, 1080]}
+                          sizes={screenIndex === 0 ? "(max-width: 900px) 68vw, 34vw" : "(max-width: 900px) 32vw, 16vw"}
+                          loading="lazy"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                ) : (
+                  <button
+                    class="zoom-trigger zoom-trigger-single"
+                    type="button"
+                    data-lightbox-src={project.image}
+                    data-lightbox-alt={`${project.name} product interface`}
+                    aria-label={`Enlarge ${project.name} product interface`}
+                  >
+                    <img src={project.image} alt={`${project.name} product interface`} loading="lazy" />
+                  </button>
+                )}
                 <span class="project-number">0{index + 6}</span>
               </div>
               <div class="project-card-copy">
-                <div><span>{project.type}</span><span>↗</span></div>
-                <h3>{project.name}</h3>
+                <div>
+                  <span>{project.type}</span>
+                  <a href={project.href} target="_blank" rel="noreferrer" aria-label={`Visit ${project.name}`}>View ↗</a>
+                </div>
+                <h3><a href={project.href} target="_blank" rel="noreferrer">{project.name}</a></h3>
                 <p>{project.description}</p>
                 <div class="tags">{project.stack.map((item) => <span>{item}</span>)}</div>
               </div>
-            </a>
+            </article>
           ))}
         </div>
 
@@ -575,14 +639,44 @@ const jsonLd = {
           <div class="archive-grid">
             {archiveProjects.map((project, index) => (
               <article class="archive-card">
-                <div class="archive-image">
-                  <Image
-                    src={project.image}
-                    alt={`${project.name} interface presented across multiple devices`}
-                    widths={[480, 720, 960]}
-                    sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 900px) 50vw, 33vw"
-                    loading="lazy"
-                  />
+                <div class:list={["archive-image", { "archive-image-gallery": project.images }]}>
+                  {project.images ? (
+                    <div class="screen-gallery">
+                      {project.images.map((screen, screenIndex) => (
+                        <button
+                          class:list={["zoom-trigger", { "gallery-main": screenIndex === 0 }]}
+                          type="button"
+                          data-lightbox-src={screen.src.src}
+                          data-lightbox-alt={screen.alt}
+                          aria-label={`Enlarge ${screen.alt}`}
+                        >
+                          <Image
+                            src={screen.src}
+                            alt={screen.alt}
+                            widths={[360, 600, 900]}
+                            sizes={screenIndex === 0 ? "(max-width: 560px) 66vw, 22vw" : "(max-width: 560px) 32vw, 11vw"}
+                            loading="lazy"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  ) : (
+                    <button
+                      class="zoom-trigger zoom-trigger-single"
+                      type="button"
+                      data-lightbox-src={project.image.src}
+                      data-lightbox-alt={`${project.name} interface presented across multiple devices`}
+                      aria-label={`Enlarge ${project.name} interface`}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={`${project.name} interface presented across multiple devices`}
+                        widths={[480, 720, 960]}
+                        sizes="(max-width: 560px) calc(100vw - 48px), (max-width: 900px) 50vw, 33vw"
+                        loading="lazy"
+                      />
+                    </button>
+                  )}
                   <span class="archive-number">{String(index + 10).padStart(2, "0")}</span>
                 </div>
                 <div class="archive-copy">
@@ -656,6 +750,14 @@ const jsonLd = {
       </section>
     </main>
 
+    <dialog class="image-lightbox" id="image-lightbox" aria-label="Enlarged project image">
+      <button class="lightbox-close" type="button" aria-label="Close enlarged image">Close ×</button>
+      <figure>
+        <img src="" alt="" />
+        <figcaption></figcaption>
+      </figure>
+    </dialog>
+
     <footer>
       <span>© {new Date().getFullYear()} Abdul Rafeh</span>
       <div>
@@ -683,6 +785,36 @@ const jsonLd = {
       } else {
         document.querySelectorAll(".reveal").forEach((element) => element.classList.add("is-visible"));
       }
+
+      const lightbox = document.querySelector("#image-lightbox");
+      const lightboxImage = lightbox?.querySelector("img");
+      const lightboxCaption = lightbox?.querySelector("figcaption");
+      const lightboxClose = lightbox?.querySelector(".lightbox-close");
+
+      document.querySelectorAll("[data-lightbox-src]").forEach((trigger) => {
+        trigger.addEventListener("click", () => {
+          if (!(lightbox instanceof HTMLDialogElement) || !(lightboxImage instanceof HTMLImageElement)) return;
+          const source = trigger.getAttribute("data-lightbox-src");
+          const alt = trigger.getAttribute("data-lightbox-alt") || "Project interface";
+          if (!source) return;
+          lightbox.classList.remove("is-tall");
+          lightboxImage.onload = () => {
+            lightbox.classList.toggle("is-tall", lightboxImage.naturalHeight > lightboxImage.naturalWidth * 1.35);
+          };
+          lightboxImage.src = source;
+          lightboxImage.alt = alt;
+          if (lightboxCaption) lightboxCaption.textContent = alt;
+          lightbox.showModal();
+        });
+      });
+
+      lightboxClose?.addEventListener("click", () => {
+        if (lightbox instanceof HTMLDialogElement) lightbox.close();
+      });
+
+      lightbox?.addEventListener("click", (event) => {
+        if (event.target === lightbox && lightbox instanceof HTMLDialogElement) lightbox.close();
+      });
     </script>
   </body>
 </html>
